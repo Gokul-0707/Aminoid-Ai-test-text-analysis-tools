@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Analysis Tool</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Text Analysis Tool</h1>
+      <p>Analyze your text quickly and easily.</p>
+    </header>
+
+    <section class="panel">
+      <label for="textInput">Enter your text</label>
+      <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
+      <button id="analyzeBtn">Analyze Text</button>
+      <p id="message" role="alert"></p>
+    </section>
+
+    <section id="results" class="results" aria-live="polite"></section>
+  </main>
+</body>
+</html>

@@ -1,9 +1,23 @@
 from collections import Counter
 import re
+from pathlib import Path
 from  fastapi import FastAPI ,HTTPException  
 from pydantic import BaseModel, Field
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 
 app = FastAPI(title="TEXT ANALYSIS TOOLS")
+BASE_DIR = Path(__file__).resolve().parent
+
+app.mount(
+    "/static",
+    StaticFiles(directory=BASE_DIR / "static"),
+    name="static"
+)
+
+@app.get("/ui")
+def frontend():
+    return FileResponse(BASE_DIR / "static" / "index.html")
 class TextInput(BaseModel):
     text: str= Field(min_length =0)
 @app.get("/")
